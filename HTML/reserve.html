@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    
+    
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1>Hot Restaurant</h1>
+                <h3>Make your reservations</h3>
+                <hr>
+                <a href="/tables">
+                    <button type="button" class="btn btn-danger btn-lg">
+                        <span class="glyphicon glyphicon-eye-open"></span> View Tables</button>
+                </a>
+                <a href="/">
+                    <button type="button" class="btn btn-lg">
+                        <span class="glyphicon glyphicon-eye-open"></span> Home</button>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <strong>Table Reservations</strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form method="POST" role="form">
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email">
+                        </div>
+                    </form>
+
+                    <br>
+                    <div class="text-left">
+                        <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+                            <span class="glyphicon glyphicon-cuttlery"></span> Make Reservation</button>
+                    </div>
+                </div>
+            </div>
+            <a href="/api/reservation">API Table Link</a>
+            <a>|</a>
+            <a href="/api/waitList">API Wait List</a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+    // post new reservations
+    $("#add-btn").on("click", function(event) {
+        event.preventDefault();
+        var newReservation = {
+          name: $("#name").val().trim(),
+          phone: $("#phone").val().trim(),
+          email: $("#email").val().trim()
+        };
+        
+
+      $.ajax({
+    type: "POST",
+    url: "/api/reservation",
+    // The key needs to match your method's input parameter (case-sensitive).
+    data: JSON.stringify(newReservation),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function(data){alert(data);},
+    failure: function(errMsg) {
+        alert(errMsg);
+    }
+});
+    });
+    </script>
+    
+
+</body>
+
+</html>

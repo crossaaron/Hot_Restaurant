@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="container text-center">
+        <h1>
+            Hot Restaurant
+        </h1>
+        <h3>Current Reservations and Waitlist</h3>
+        <span class=“glyphicon glyphicon-calendar”></span>
+        <hr>
+        <a href="/tables">
+            <button type="button" id="viewButton" class="btn btn-danger btn-lg">
+                <span class="glyphicon glyphicon-eye-open"></span> View Tables</button>
+        </a>
+        <a href="/reserve">
+            <button type="button" class="btn btn-lg">
+                <span class="glyphicon glyphicon-eye-open"></span> Make Reservation</button>
+        </a>
+    </div>
+</div>
+<a href="/api/reservation">API Table Link</a>
+<a>|</a>
+<a href="/api/waitList">API Wait List</a>
+
+
+
+</body>
+</html>

@@ -63,10 +63,9 @@
     
     <script type="text/javascript">
         $(document).ready(function () { 
-            console.log("ready")
+            var id = 1;
             $.get("/api/reservation", function (data) {
                 for (let i = 0; i < data.length; i++) {
-                    var id = 1;
                     if (data) {
                         $("#rezzes").prepend(
                             "<div class='well' id='tableWell-01'><h2><span class='label label-primary'>" + id + "</span> | " + data[i].name + "</h2></div>");

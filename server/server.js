@@ -54,3 +54,5 @@ app.get("/reserve", (req, res) => {
 app.get("/tables", (req, res) => {
     res.sendFile(path.join(__dirname, "../HTML/tables.html"))
 });
+
+console.log("hello");
